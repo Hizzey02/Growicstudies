@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.13;
+
+// my contract called Banking which will allow me to deposit an amount in balance and get/set it again
+contract Banking {
+    // this is mapping part which sets a mapping from address the key to an uint the value.
+    mapping(address => uint) public balance;
+
+// string header for look only
+    string public purpose = "To check my balance";
+    // this function sets the deposit value from an address with a specific uint256.
+    function setdeposit(address _addr, uint256 _uint) public {
+        balance[_addr] = _uint;
+    }
+    
+    // this function gets back the deposit value set in address with the value from the set uint. This is returned.
+    function getdeposit (address _addr) public view returns (uint256) {
+        return balance[_addr];
+    }
+
+}
+
+//Create a smart contract that saves user balance. The contract should have the functions:
+//deposit (uint256 amount) this function accepts one argument and it saves the amount a user is 
+//depositing into a mapping,
+//checkBalance() this function searches for the user balance inside the balance mapping and returns 
+//the balance of whoever is calling the contract (i.e msg.sender). This function does not accept any arguments.*
+//0x61C2e4577c8DfA07c7B6DB291EC02770DeA12163
